@@ -1,0 +1,41 @@
+
+<!-- biographical info about this contributor-->
+
+<% profile = current_user.profile %>
+<p>
+  <%= link_to "Edit profile", edit_profile_path %>
+| <%= link_to "Delete profile", profile, :confirm => 'Are you sure you want to delete your profile?', :method => :delete, :class => "remove" %>
+</p>
+
+<table class="profileTable">
+<tbody>
+  <tr>
+    <td colspan="2" class="profileName"><%= @profile.lastname %>, <%= @profile.firstname %> <%= @profile.middleinitials %></td>
+  </tr>
+  <tr>
+    <td class="profileFieldLabel">ORCID:</td>
+    <td class="profileDataCells"><%= @profile.cid %></td>
+  </tr>
+  <tr>
+    <td class="profileFieldLabel">URL:</td>
+    <td class="profileDataCells">http://orcid.org/cid/<%= @profile.cid %></td>
+  </tr>
+  <tr>
+    <td class="profileFieldLabel">Other names:</td>
+    <td class="profileDataCells">
+<%=  
+other_names = @profile.other_names
+foo = other_names.map! {|n| n.name }
+other_names.join("; ")  %>
+    </td>
+  </tr>
+</table>
+
+
+
+<!-- bibliographical info, aka works attributed to this contributor-->
+
+<!--
+- link to edit pub/works listing
+- list pubs
+-->

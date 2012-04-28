@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Journal of Psychoceramic Manuscript Tracking System</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+  <%= yield(:head) %>
+</head>
+<body>
+
+
+<div id="banner" class="container">
+  <div  class="row">
+    <div class="span2">
+    <%= link_to root_path do %>
+       <%= image_tag "crackpot.png", :alt => "Crackpot, neh" %>
+    <% end %>
+    </div>
+    <div class="span10">
+      <h1>Journal of Psychoceramics</h1>
+    </div>
+    <div class="span10">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <ul class="nav">
+              <li><%= link_to "Home", root_path %></li>
+              <% if user_signed_in? %>
+              <li><a href="<%= account_path %>"><i class="icon-user icon-white"></i>Account</a></li>
+              <%- if current_user.profile -%>
+              <li><%= link_to 'Profile', profile_path -%></li>
+              <%- end -%>
+              <li><a href="<%= manuscripts_path %>"><i class="icon-book icon-white"></i>My manuscripts</a></li>
+              <li><%= link_to  'Sign out', destroy_user_session_path %></li>
+              <% else %>
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+              <% end %> 
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div  class="container">
+
+  <div  class="row">
+    <div class="span2">&nbsp;</div>
+    <div class="span8">
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+    </div>
+    <div class="span2">&nbsp;</div>
+  </div>
+
+  <div  class="row">
+    <div class="span2">&nbsp;</div>
+    <div class="span8">
+
+      
+  <%= content_tag :h1, yield(:title) if show_title? %>
+  <%= yield %>
+
+    </div>
+    <div class="span2">&nbsp;</div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

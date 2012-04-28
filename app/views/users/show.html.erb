@@ -1,0 +1,74 @@
+      
+<!-- user account information -->
+
+<h3>User account</h3>
+
+<p><b>E-mail:</b> <%= @user.email %></p>
+<p><b>Password</b> ******</p>
+
+<p>
+<%= link_to "Edit account", edit_user_registration_path %>
+</p>
+
+<hr />
+<h3>My profile</h3>
+
+<% if profile = current_user.profile %>
+
+
+  <strong><%= link_to profile.lastname + ", " + profile.firstname + " " + profile.middleinitials, profile_path %></strong>
+| <%= link_to "Edit", edit_profile_path %> 
+| <%= link_to "Delete", delete_profile_path, :confirm => 'Are you sure you want to delete your profile?', :method => :delete, :class => "remove" %>
+
+<br /><i> [if fetched from external service, need flag or link to external authn entry in profile table]</i>
+
+<% else %>
+
+None | <%= link_to "Create my profile now", new_profile_path %>
+
+<% end%>
+
+<hr />
+
+<h3>External identities currently connected</h3>
+
+<% if authentications = current_user.authentications %>
+  <% if !authentications.empty? %>
+    <p><strong>You can sign in to this account using:</strong></p>
+    <div class="authentications">
+      <% for authentication in authentications %>
+        <div class="authentication">
+          <%= image_tag "#{authentication.provider}_64.png" %>
+          <div><%= authentication.uid if authentication.uid %><br />
+            <%= link_to "Delete", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "btn btn-mini btn-danger" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+  <% else %>
+ None
+  <% end %>
+<% end %>
+
+<p>&nbsp;</p>
+
+  <p><strong>Connect to new service:</strong></p>
+  
+<a href="/auth/orcid" class="auth_provider">
+  <%= image_tag "orcid_64.png", :alt => "ORCID" %>
+  ORCID
+</a>
+<a href="/auth/twitter" class="auth_provider">
+  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>
+  Twitter
+</a>
+<!--
+<a href="/auth/open_id?openid_url=https://www.google.com/accounts/o8/id" class="auth_provider">
+  <%= image_tag "google_64.png", :size => "64x64", :alt => "Google" %>
+  Google
+</a>
+-->
+<div class="clear"></div>
+

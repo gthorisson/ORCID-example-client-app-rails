@@ -1,0 +1,38 @@
+
+<%= form_for @profile, :url => update_profile_path do |f| %>
+
+
+  <div class="control-group success">
+    <label class="control-label" for="inputSuccess">First / given name(s)</label>
+    <div class="controls">
+       <%= f.text_field :firstname, :class => "input-xlarge disabled",:disabled => true%>
+    </div>
+  </div>
+
+  <p>
+    <%= f.label "Last / Family Name" %><br />
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <%= f.label "Middle Initials" %><br />
+    <%= f.text_field :middleinitials %>
+  </p>
+
+<p>
+Other names<br />
+
+<%= text_field_tag "other_name_add", nil, :maxlength => 100, :size=> 50  %> 
+
+<%= link_to_function "Add name", "this.click( function(){alert('foo!'); var n = this.value; alert('adding name' + n); })", :class =>"nav_link" %>
+
+<%= submit_tag "Add name", :class => "btn btn-small"  %>
+<br />
+
+
+<%= select_tag "other_name", options_from_collection_for_select(  @profile.other_names, 'name','name') ,:multiple  => true, :class => 'otherNamesSelect' %> 
+</p>
+
+
+  <%= f.submit nil, :class => "btn btn-small" %>
+
+<% end %>

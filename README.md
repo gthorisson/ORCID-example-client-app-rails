@@ -1,6 +1,8 @@
 # ORCID example client application in Rails
 
-Simple Rails application to serve the role of an OAuth consumer which communicates with the [ORCID API] (https://github.com/ORCID).
+Rails 3 application which demonstrates how to do simple integration with the [ORCID API] (https://github.com/ORCID).
+
+By [Gudmundur A. Thorisson] [http://www.gthorisson.name],University of Leicester / University of Iceland / ORCID
 
 
 ## Getting started 
@@ -10,12 +12,10 @@ Simple Rails application to serve the role of an OAuth consumer which communicat
 
 Download the ORCID release from GitHub (https://github.com/ORCID/) and follow the instructions to start up the app on your local machine. This provides a bare-bones registry with a single contributor which exposes a nearly fully-functional API (see http://about.orcid.org/content/version-104-orcid-mock-api-released).
 
-_Note: the API software will of course ultimately be operated by the ORCID organization as a centralized service._
-
+_Note: the API software will of course ultimately be operated by the ORCID organization as a centralized service. The standalone mode of operatio is intended purely for early development purposes._
 
 
 ### Install & run Rails client app
-
 
 ```bash
 [mummi@cambozola]git clone https://github.com/gthorisson/ORCID-example-client-app-rails.git
@@ -31,36 +31,51 @@ _Note: the API software will of course ultimately be operated by the ORCID organ
 [2012-04-28 15:18:47] INFO  WEBrick::HTTPServer#start: pid=14838 port=3000
 ```
 
-The open your browser at http://localhost:3000 and verify that the client app is running.
-
-[screenshot]
+The open your browser at [http://localhost:3000] and verify that the client app is running.
 
 
-### Register client app as an OAuth consumer with the ORCID API
+### Register client app with the ORCID API
 
-Follow instructions with the ORCID API application to register your client application with the service. Then add the consumer key+secret credentials your Rails config in ```config/initializers/omniauth.rb```:
+Follow instructions with the ORCID API application to register your client applicatiob as an OAuth consumer. Then add the consumer key+secret credentials your Rails config in ```config/initializers/omniauth.rb```:
 
+
+```ruby
 require 'omniauth'
 require 'omniauth-orcid'
 
-```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :orcid, '[CONSUMER KEY]','[CONSUMER SECRET]'
 end
 ```
 
 
-### Scenario A: use registers for account, then connects his account to an ORCID profile
+### Scenario A: User registers for account, then connects his account to an ORCID profile
 
 .. got to registration page, fill in & submit in conventional way
 .. then go to account page and click "Add ORCID account"
 
 
-### Scenario B: Register user and connect to ORCID in one go
+### Scenario B: User register and connects to ORCID in one go
 
-..go to login page and click "Connect with ORCID" button
-..fill in additional profile info if needed
+..go to login page and click "Connect with ORCID" button.
+..fill in additional profile info if needed.result
 
+
+## Implementation notes
+
+...
+
+
+## More information 
+
+The main ORCID website - http://about.orcid.org
+The ORCID Technical Working Group - http://about.orcid.org/twg
+
+
+## Acknowledgements
+
+
+This work is supported in part by funds from the NIH Award, [VIVO: Enabling National Networking of Scientists] [http://www.vivoweb.org], U24 RR029822 and by the European Community’s Seventh Framework Programme (FP7/2007–2013) under contract grant number 200754 ([The GEN2PHEN Project] [http://www.gen2phen.org])
 
 
 

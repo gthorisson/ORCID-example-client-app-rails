@@ -1,0 +1,41 @@
+
+<i>Note: main profile display, shows public attributes only</i>
+
+<!-- biographical info about this contributor-->
+
+<p>
+  <b>ORCID:</b>
+  <%= @profile.cid %>
+</p>
+
+<p>
+  <b>URL:</b>
+  <%= link_to "http://orcid.org/cid/" + @profile.cid, "http://orcid.org/cid/" + @profile.cid %>
+</p>
+
+<p>
+  <b>First / Given Name:</b>
+  <%= @profile.firstname %>
+</p>
+
+<p>
+  <b>Last / family name:</b>
+  <%= @profile.lastname %>
+</p>
+
+
+<p>
+  <b>Middle initials:</b>
+  <%= @profile.middleinitials %>
+</p>
+
+<p>
+<b>Other names:</b>
+<%=  
+other_names = @profile.other_names
+foo = other_names.map! {|n| n.name }
+other_names.join("; ")  %>
+
+</p>
+
+<!-- bibliographical info, aka works attributed to this contributor-->

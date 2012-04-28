@@ -1,0 +1,29 @@
+
+
+  <h2>Welcome to the JoP Manuscript Tracking System</h2>
+
+
+ <% if user_signed_in? %>
+  <% ext_authn =  current_user.authentications %>
+
+      <p>Hello <%= current_user.email %> What would you like to do?</p>
+
+<%= link_to new_manuscript_path, :class => "btn btn-primary btn-large" do %>
+      <h3>Submit a manuscript</h3>
+<% end %>
+&nbsp;&nbsp;&nbsp;
+<%= link_to users_register_orcid_path( :destination =>"submit_manuscript"), :class => "btn btn-primary btn-large" do %>
+      <h3>Register my ORCID</h3>
+<% end %>
+      <p />
+
+ <% else %>
+      <p>To do anything of interest on this demo site, you need to sign in</p>
+      <p>
+  <%= link_to "Sign in / sign up", new_user_session_path, :class => "btn btn-primary btn-small"  %> 
+      </p>
+ <% end %>  
+
+
+
+
