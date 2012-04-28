@@ -2,7 +2,7 @@
 
 Rails 3 application which demonstrates how to do simple integration with the [ORCID API] (https://github.com/ORCID).
 
-By [Gudmundur A. Thorisson] [http://www.gthorisson.name],University of Leicester / University of Iceland / ORCID
+By [Gudmundur A. Thorisson] (http://www.gthorisson.name),University of Leicester / University of Iceland / ORCID
 
 
 ## Getting started 
@@ -31,7 +31,7 @@ _Note: the API software will of course ultimately be operated by the ORCID organ
 [2012-04-28 15:18:47] INFO  WEBrick::HTTPServer#start: pid=14838 port=3000
 ```
 
-The open your browser at [http://localhost:3000] and verify that the client app is running.
+The open your browser at http://localhost:3000 and verify that the client app is running.
 
 
 ### Register client app with the ORCID API
@@ -69,18 +69,19 @@ end
 ## More information 
 
 The main ORCID website - http://about.orcid.org
+
 The ORCID Technical Working Group - http://about.orcid.org/twg
 
 
 ## Acknowledgements
 
 
-This work was supported in part by funds from the NIH Award, [VIVO: Enabling National Networking of Scientists] [http://www.vivoweb.org], U24 RR029822 and by the European Community’s Seventh Framework Programme (FP7/2007–2013) under contract grant number 200754 ([The GEN2PHEN Project] [http://www.gen2phen.org])
+This work was supported in part by funds from the NIH Award, [VIVO: Enabling National Networking of Scientists] (http://www.vivoweb.org), U24 RR029822 and by the European Community’s Seventh Framework Programme (FP7/2007–2013) under contract grant number 200754 ([The GEN2PHEN Project] (http://www.gen2phen.org))
 
 
 
 
-# License
+## License
 
 =============================================================================
 Copyright (C) 2011-12 by Gudmundur A. Thorisson
