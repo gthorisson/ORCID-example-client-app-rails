@@ -3,10 +3,11 @@ class RegistrationsController < Devise::RegistrationsController
   before_filter :authenticate_user!, :only => [:register_orcid]
 
   def new
-    # If available, pull user's E-mail address out of the OAuth hash and pass
-    # into registration form.
     
     build_params = {}
+    
+    # If available, pull user's E-mail address out of the OAuth hash and pass
+    # into registration form.
     begin
       build_params[:email] = session["omniauth"]["user_info"]["email"]
     rescue

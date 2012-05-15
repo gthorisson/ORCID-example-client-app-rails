@@ -13,14 +13,15 @@ gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'omniauth-twitter'
 gem 'ruby-debug19'
-gem 'faraday-stack'
 gem 'jquery-rails'
+gem 'multi_xml'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'sprockets'   , '~> 2.1.2'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer'

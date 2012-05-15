@@ -84,7 +84,7 @@ This work was supported in part by funds from the NIH Award, [VIVO: Enabling Nat
 ## License
 
 =============================================================================
-Copyright (C) 2011-12 by Gudmundur A. Thorisson
+Copyright (C) 2012 by Gudmundur A. Thorisson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101152847) do
+ActiveRecord::Schema.define(:version => 20120511211426) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -23,43 +23,12 @@ ActiveRecord::Schema.define(:version => 20111101152847) do
     t.text     "profile_format"
   end
 
-  create_table "client_applications", :force => true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.string   "support_url"
-    t.string   "callback_url"
-    t.string   "key",          :limit => 40
-    t.string   "secret",       :limit => 40
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "client_applications", ["key"], :name => "index_client_applications_on_key", :unique => true
-
-  create_table "comments", :force => true do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.integer  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "manuscripts", :force => true do |t|
     t.text     "title"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "oauth_nonces", :force => true do |t|
-    t.string   "nonce"
-    t.integer  "timestamp"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "oauth_nonces", ["nonce", "timestamp"], :name => "index_oauth_nonces_on_nonce_and_timestamp", :unique => true
 
   create_table "oauth_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -86,14 +55,6 @@ ActiveRecord::Schema.define(:version => 20111101152847) do
     t.datetime "updated_at"
   end
 
-  create_table "posts", :force => true do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.text     "name"
@@ -101,18 +62,11 @@ ActiveRecord::Schema.define(:version => 20111101152847) do
     t.text     "role"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "middleinitials"
-    t.string   "orcid"
-    t.string   "cid"
-  end
-
-  create_table "tags", :force => true do |t|
-    t.string   "name"
-    t.integer  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "family_name",       :limit => 500
+    t.string   "given_names",       :limit => 500
+    t.string   "vocative_name",     :limit => 500
+    t.string   "credit_name",       :limit => 500
+    t.integer  "authentication_id"
   end
 
   create_table "users", :force => true do |t|

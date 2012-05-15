@@ -2,20 +2,19 @@
 <%= form_for @profile, :url => update_profile_path do |f| %>
 
 
-  <div class="control-group success">
-    <label class="control-label" for="inputSuccess">First / given name(s)</label>
+    <label>First / given name(s)</label>
     <div class="controls">
-       <%= f.text_field :firstname, :class => "input-xlarge disabled",:disabled => true%>
+       <%= f.text_field :given_names, :class => "input-xlarge" %>
     </div>
-  </div>
 
   <p>
     <%= f.label "Last / Family Name" %><br />
-    <%= f.text_field :lastname %>
+    <%= f.text_field :family_name %>
   </p>
+
   <p>
-    <%= f.label "Middle Initials" %><br />
-    <%= f.text_field :middleinitials %>
+    <%= f.label "What should we call you?" %><br />
+    <%= f.text_field :vocative_name %>
   </p>
 
 <p>
@@ -32,7 +31,14 @@ Other names<br />
 <%= select_tag "other_name", options_from_collection_for_select(  @profile.other_names, 'name','name') ,:multiple  => true, :class => 'otherNamesSelect' %> 
 </p>
 
+  <%= f.submit nil, :class => "btn btn-small btn-primary" %>
 
-  <%= f.submit nil, :class => "btn btn-small" %>
+<% if @profile.authentication and action_name = 'edit'  -%>
+<p>&nbsp;</p>
+  <%#= f.submit "Update profile and send changes to ORCID ", :class =>
+  "btn btn-small btn-primary" %>
+<% end -%>
+
+
 
 <% end %>

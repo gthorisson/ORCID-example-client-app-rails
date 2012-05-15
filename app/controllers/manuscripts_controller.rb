@@ -48,5 +48,37 @@ class ManuscriptsController < ApplicationController
     redirect_to manuscripts_url
   end
 
+  # Update manuscripts belonging to the user 
+  def update
+
+    if params["Delete"]
+      
+      # Send to confirmation page
+        # "are you sure you want to delete these X manuscripts?"
+
+    elsif params["Send to ORCID"]
+
+      # get ORCID works
+
+      
+
+    end
+    
+
+  end
+
+  private
+
+  
+  # Get current ORCID works listing for the user
+  def get_orcid_works____
+    
+
+  end
+
+  # 
+  def fooo
+
+  end
 
 end

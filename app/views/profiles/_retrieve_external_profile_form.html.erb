@@ -5,22 +5,25 @@
 
 <h4>Would you like to retrieve profile data from one of your external identities?</h4>
 
-<%= form_tag new_profile_path, :method => :get do %>
 
-<% for authn in current_user.authentications %>
-<%= radio_button_tag "external_authn_id", authn.id  %> <%= authn.provider.camelize %>:<%= authn.profile_uri %>
-  <br />
-<% end %>
+  <% for authn in current_user.authentications %>
+    <%= form_tag "/auth/" + authn.provider , :method => :get do %>
+
+      <%= authn.provider.camelize %>:<%= authn.profile_uri %>
+      <span class="button">
+        <%= submit_tag "Retrieve", :name => "retrieve_external", :class => "btn btn-small" %>
+      </span>
+
+      <%= hidden_field_tag "scope", "/orcid-bio/read-protected"  %>
+    <% end %>
+
+    <br />
+
+  <% end %>
 
 
-  <p class="button">
-  	<%= submit_tag "Yes, retrieve data", :name => "retrieve_external_profiledata", :class => "btn btn-small" %>
-  </p>
-	
-<% end %>
 
-
-  <% elsif params[:retrieve_external_profiledata] %>
+  <% elsif params[:retrieve_external] %>
   <h4>Showing profile data from <%= @external_authn.provider %>:<%= @external_authn.uid %></h4>
   <pre>Note: probably should highlight somehow which fields are externally sourced</pre>
   <% end %>

@@ -10,16 +10,18 @@
 <table class="profileTable">
 <tbody>
   <tr>
-    <td colspan="2" class="profileName"><%= @profile.lastname %>, <%= @profile.firstname %> <%= @profile.middleinitials %></td>
+    <td colspan="2" class="profileName"><strong><%= @profile.family_name %>, <%= @profile.given_names %></strong></td>
   </tr>
+<% if @profile.authentication -%>
   <tr>
     <td class="profileFieldLabel">ORCID:</td>
-    <td class="profileDataCells"><%= @profile.cid %></td>
+    <td class="profileDataCells"><%= @profile.authentication.uid %></td>
   </tr>
   <tr>
     <td class="profileFieldLabel">URL:</td>
-    <td class="profileDataCells">http://orcid.org/cid/<%= @profile.cid %></td>
+    <td class="profileDataCells">http://orcid.org/<%= @profile.authentication.uid %></td>
   </tr>
+<% end -%>
   <tr>
     <td class="profileFieldLabel">Other names:</td>
     <td class="profileDataCells">

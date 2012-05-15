@@ -15,12 +15,38 @@
 
 <% if profile = current_user.profile %>
 
+<%= link_to "Edit profile", edit_profile_path %> 
+| <%= link_to "Delete profile", delete_profile_path, :confirm => 'Are you sure you want to delete your profile?', :method => :delete, :class => "remove" %>
 
-  <strong><%= link_to profile.lastname + ", " + profile.firstname + " " + profile.middleinitials, profile_path %></strong>
-| <%= link_to "Edit", edit_profile_path %> 
-| <%= link_to "Delete", delete_profile_path, :confirm => 'Are you sure you want to delete your profile?', :method => :delete, :class => "remove" %>
+<br />
 
-<br /><i> [if fetched from external service, need flag or link to external authn entry in profile table]</i>
+<table class="profileTable">
+<tbody>
+  <tr>
+    <td colspan="2" class="profileName"><strong><%= profile.family_name %>, <%= profile.given_names %></strong></td>
+  </tr>
+<% if profile.authentication -%>
+  <tr>
+    <td class="profileFieldLabel">ORCID:</td>
+    <td class="profileDataCells"><%= profile.authentication.uid %></td>
+  </tr>
+  <tr>
+    <td class="profileFieldLabel">URL:</td>
+    <td class="profileDataCells">http://orcid.org/<%= profile.authentication.uid %></td>
+  </tr>
+<% end -%>
+  <tr>
+    <td class="profileFieldLabel">Other names:</td>
+    <td class="profileDataCells">
+<%=  
+other_names = profile.other_names
+foo = other_names.map! {|n| n.name }
+other_names.join("; ")  %>
+    </td>
+  </tr>
+</table>
+
+
 
 <% else %>
 
