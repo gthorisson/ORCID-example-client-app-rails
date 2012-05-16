@@ -6,7 +6,7 @@ require 'multi_xml'
 module OrcidProfileHelper
 
   # TODO move consumer ID + secret to a config file!!
-  CLIENT = OAuth2::Client.new '8933-0264-7715-6870','1ae28805-be96-4899-891a-a00159625745', :site  => 'http://localhost:8080'
+  CLIENT = OAuth2::Client.new '0000-0002-7649-0259','5a81472f-d318-4823-887a-ea64ac6f680a', :site  => 'http://api.devsandbox.orcid.org'
   
   # Prepare the OAuth token needed to make the Tier 2 API call
   def build_token(access_token)
@@ -18,7 +18,8 @@ module OrcidProfileHelper
     Rails.logger.debug "Retrieving ORCID bio data for #{orcid} using access token #{access_token}"
 
     # Prepare and send the OAuth request with the single-use token
-    response = build_token(access_token).get "/t2/#{orcid}/orcid-bio"
+    # ToDo proper exception handling
+    response = build_token(access_token).get "/#{orcid}/orcid-bio"
     Rails.logger.debug "response.body: " + response.body
     profile = MultiXml.parse(response.body)['orcid_message']['orcid_profile'] 
     

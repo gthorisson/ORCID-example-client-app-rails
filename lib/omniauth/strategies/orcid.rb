@@ -9,13 +9,14 @@ module OmniAuth
       DEFAULT_SCOPE = '/orcid-bio/read-protected'      
 
       option :client_options, {
-        :site => 'http://localhost:8080',
-        :authorize_url => '/fe/oauth/authorize',
-        :token_url => '/t2/oauth/token',
+        :site => 'http://api.devsandbox.orcid.org',
+        :authorize_url => 'http://devsandbox.orcid.org/oauth/authorize',
+        :token_url => 'http://api.devsandbox.orcid.org/oauth/token',
         :scope => '/orcid-profile/read-protected',
         :response_type => 'code',
         :mode => :header
       }
+
 
       # Pull out unique ID for the user in the external system
       uid {  access_token.params["orcid"] }
