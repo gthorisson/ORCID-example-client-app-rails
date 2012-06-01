@@ -2,20 +2,13 @@
 
 Rails 3 application which demonstrates how to do simple integration with the [ORCID API] (https://github.com/ORCID).
 
-By [Gudmundur A. Thorisson] (http://www.gthorisson.name),University of Leicester / University of Iceland / ORCID
+By [Gudmundur A. Thorisson] (http://www.gthorisson.name), University of Leicester / University of Iceland / ORCID
 
 
-## Getting started 
+## Getting started
 
 
-### Install & run the ORCID API locally
-
-Download the ORCID release from GitHub (https://github.com/ORCID/) and follow the instructions to start up the app on your local machine. This provides a bare-bones registry with a single contributor which exposes a nearly fully-functional API (see http://about.orcid.org/content/version-104-orcid-mock-api-released).
-
-_Note: the API software will of course ultimately be operated by the ORCID organization as a centralized service. The standalone mode of operatio is intended purely for early development purposes._
-
-
-### Install & run Rails client app
+### Install Rails client app
 
 ```bash
 [mummi@cambozola]git clone https://github.com/gthorisson/ORCID-example-client-app-rails.git
@@ -34,20 +27,22 @@ _Note: the API software will of course ultimately be operated by the ORCID organ
 The open your browser at http://localhost:3000 and verify that the client app is running.
 
 
-### Register client app with the ORCID API
+### Register client app with the ORCID test sandbox
 
-Follow instructions with the ORCID API application to register your client applicatiob as an OAuth consumer. Then add the consumer key+secret credentials your Rails config in ```config/initializers/omniauth.rb```:
+The ORCID sandbox is now live at http://devsandbox.orcid.org
+
+Got to the Developer portal for info on how to register a client app:
+
+http://dev.orcid.org/docs
 
 
-```ruby
-require 'omniauth'
-require 'omniauth-orcid'
+### Configure client app to connect to the ORCID sandbox
 
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :orcid, '[CONSUMER KEY]','[CONSUMER SECRET]'
-end
-```
+See http://dev.orcid.org/docs/api-code-examples-ruby
 
+
+
+## Using the app
 
 ### Scenario A: User registers for account, then connects his account to an ORCID profile
 
@@ -68,9 +63,11 @@ end
 
 ## More information 
 
-The main ORCID website - http://about.orcid.org
+Main ORCID website - http://about.orcid.org
 
-The ORCID Technical Working Group - http://about.orcid.org/twg
+ORCID Technical Working Group - http://about.orcid.org/twg
+
+ORCID Developer website - http://dev.orcid.org
 
 
 ## Acknowledgements
