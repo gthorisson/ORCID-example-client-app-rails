@@ -51,14 +51,14 @@ end
 
 ### Scenario A: User registers for account, then connects his account to an ORCID profile
 
-.. got to registration page, fill in & submit in conventional way
-.. then go to account page and click "Add ORCID account"
+* Go to registration page, fill in & submit in conventional way
+* Then go to account page and click "Add ORCID account"
 
 
 ### Scenario B: User register and connects to ORCID in one go
 
-..go to login page and click "Connect with ORCID" button.
-..fill in additional profile info if needed.result
+* Go to login page and click "Connect with ORCID" button.
+* Fill in additional profile info if needed
 
 
 ## Implementation notes
@@ -83,7 +83,10 @@ This work was supported in part by funds from the NIH Award, [VIVO: Enabling Nat
 
 ## License
 
+The MIT License (OSI approved, see more at http://www.opensource.org/licenses/mit-license.php)
+
 =============================================================================
+
 Copyright (C) 2012 by Gudmundur A. Thorisson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -105,3 +108,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 =============================================================================
+
+![Open Source Initiative Approved License](http://www.opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png)
+
