@@ -1,6 +1,6 @@
 # ORCID example client application in Rails
 
-Rails 3 application which demonstrates how to do simple integration with the [ORCID API] (https://github.com/ORCID).
+Simple web application built with [Ruby on Rails](http://rubyonrails.org) and [Twitter Bootstrap](http://twitter.github.com/bootstrap/) which demonstrates how to do simple integration with the [ORCID API] (https://github.com/ORCID).
 
 By [Gudmundur A. Thorisson] (http://www.gthorisson.name), University of Leicester / University of Iceland / ORCID
 
@@ -29,9 +29,7 @@ The open your browser at http://localhost:3000 and verify that the client app is
 
 ### Register client app with the ORCID test sandbox
 
-The ORCID sandbox is now live at http://devsandbox.orcid.org
-
-Got to the Developer portal for info on how to register a client app:
+The ORCID sandbox is now live at http://devsandbox.orcid.org . Go to the Developer portal for info on how to register a client app that can connect to the sandbox:
 
 http://dev.orcid.org/docs
 
@@ -39,7 +37,6 @@ http://dev.orcid.org/docs
 ### Configure client app to connect to the ORCID sandbox
 
 See http://dev.orcid.org/docs/api-code-examples-ruby
-
 
 
 ## Using the app
@@ -56,9 +53,12 @@ See http://dev.orcid.org/docs/api-code-examples-ruby
 * Fill in additional profile info if needed
 
 
-## Implementation notes
+## OAuth implementation notes
 
-...
+The OAuth part of the client <-> ORCID connectivity is handled by the terrific [OmniAuth external authentication framework](http://www.omniauth.org). As with most other OAuth APIs in mainstream use, the "OAuth dance" is pretty straightforward and, importantly, standardized. So, only a simple [custom OAuth2 strategy](https://github.com/gthorisson/ORCID-example-client-app-rails/blob/master/lib/omniauth/strategies/orcid.rb) is needed to deal with setup and customization specific to the ORCID OAuth API.
+
+See the [ORCID devsite](See http://dev.orcid.org/docs/api-code-examples-ruby
+) for more details on the OAuth nuts&bolts.
 
 
 ## More information 
@@ -74,7 +74,6 @@ ORCID Developer website - http://dev.orcid.org
 
 
 This work was supported in part by funds from the NIH Award, [VIVO: Enabling National Networking of Scientists] (http://www.vivoweb.org), U24 RR029822 and by the European Community’s Seventh Framework Programme (FP7/2007–2013) under contract grant number 200754 ([The GEN2PHEN Project] (http://www.gen2phen.org))
-
 
 
 
@@ -106,5 +105,5 @@ THE SOFTWARE.
 
 =============================================================================
 
-![Open Source Initiative Approved License](http://www.opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png)
+![Open Source Initiative Approved License](http://www.opensource.org/trademarks/opensource/web/opensource-110x95.jpg)
 
