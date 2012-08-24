@@ -12,6 +12,7 @@ gem "devise"
 gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'omniauth-twitter'
+gem 'omniauth-orcid'
 gem 'ruby-debug19'
 gem 'jquery-rails'
 gem 'multi_xml'

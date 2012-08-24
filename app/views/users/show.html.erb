@@ -50,7 +50,7 @@ other_names.join("; ")  %>
 
 <% else %>
 
-None | <%= link_to "Create my profile now", new_profile_path %>
+None | <%= link_to "Create my profile now!", new_profile_path, :class => "btn btn-success" %>
 
 <% end%>
 
@@ -63,8 +63,8 @@ None | <%= link_to "Create my profile now", new_profile_path %>
     <p><strong>You can sign in to this account using:</strong></p>
     <div class="authentications">
       <% for authentication in authentications %>
-        <div class="authentication">
-          <%= image_tag "#{authentication.provider}_64.png" %>
+        <div class="authentication" style="float: left; margin-right: 10px;">
+          <%= image_tag "#{authentication.provider}_64.png", :class => "well", :style =>"padding: 2px;" %>
           <div><%= authentication.uid if authentication.uid %><br />
             <%= link_to "Delete", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "btn btn-mini btn-danger" %>
           </div>
@@ -78,21 +78,29 @@ None | <%= link_to "Create my profile now", new_profile_path %>
   <% end %>
 <% end %>
 
-<p>&nbsp;</p>
+<p style="clear: both;">&nbsp;</p>
+<hr />
 
   <p><strong>Connect to new service:</strong></p>
   
-<a href="/auth/orcid" class="auth_provider">
-  <%= image_tag "orcid_64.png", :alt => "ORCID" %>
-  ORCID
-</a>
-<a href="/auth/twitter" class="auth_provider">
-  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>
-  Twitter
-</a>
+<div class="authentication" style="float: left; margin-right: 10px;">
+  <a href="/auth/orcid" class="auth_provider">
+    <%= image_tag "orcid_64.png", :alt => "ORCID", :class => "well", :style =>"padding: 2px;" %>
+    <br />
+    ORCID
+  </a>
+</div>
+<div class="authentication" style="float: left; margin-right: 10px;">
+  <a href="/auth/twitter" class="auth_provider">
+    <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter", :class => "well", :style =>"padding: 2px;" %>
+    <br />
+    Twitter
+  </a>
+</div>
 <!--
 <a href="/auth/open_id?openid_url=https://www.google.com/accounts/o8/id" class="auth_provider">
   <%= image_tag "google_64.png", :size => "64x64", :alt => "Google" %>
+  <br />
   Google
 </a>
 -->
