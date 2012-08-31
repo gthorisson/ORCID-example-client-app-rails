@@ -8,12 +8,13 @@ By [Gudmundur A. Thorisson] (http://www.gthorisson.name), University of Leiceste
 ## Getting started
 
 
-### Install Rails client app
+### Install Rails client app, create database and spin it up
 
 ```bash
 [mummi@cambozola]git clone https://github.com/gthorisson/ORCID-example-client-app-rails.git
 [mummi@cambozola]cd ORCID-example-client-app-rails/
 [mummi@cambozola]bundle
+[mummi@cambozola]rake db:setup
 [mummi@cambozola]rails server
 => Booting WEBrick
 => Rails 3.2.3 application starting in development on http://0.0.0.0:3000
