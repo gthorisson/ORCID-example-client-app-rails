@@ -223,7 +223,6 @@ DEPENDENCIES
   jquery-rails
   multi_xml
   omniauth
-  omniauth-oauth2
   omniauth-orcid
   omniauth-twitter
   pickle
