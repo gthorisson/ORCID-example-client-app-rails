@@ -2,7 +2,10 @@
 
 Simple web application built with [Ruby on Rails](http://rubyonrails.org) and [Twitter Bootstrap](http://twitter.github.com/bootstrap/) which demonstrates how to do simple integration with the [ORCID API] (https://github.com/ORCID).
 
-By [Gudmundur A. Thorisson] (http://www.gthorisson.name), University of Leicester / University of Iceland / ORCID
+By [Gudmundur A. Thorisson] (http://www.gthorisson.name), University of Iceland / ORCID
+
+
+The main purpose of the app is to demonstrate the coolness of the ORCID OmniAuth strategy: https://github.com/gthorisson/omniauth-orcid/
 
 
 ## Getting started
@@ -66,7 +69,7 @@ See the [ORCID devsite](See http://dev.orcid.org/docs/api-code-examples-ruby
 
 Main ORCID website - http://about.orcid.org
 
-ORCID Technical Working Group - http://about.orcid.org/twg
+ORCID Support website - http://support.orcid.org
 
 ORCID Developer website - http://dev.orcid.org
 
