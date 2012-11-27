@@ -1,7 +1,15 @@
-require 'omniauth'
 require 'omniauth-orcid'
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, 'eSX0sdHDODy1bdUFX5oAw', 'Wdh2Eo5CtYrIVfeogDVrjjMa6dee18H96FCqdCYc'
-  provider :orcid, '0000-0002-7649-0259','5a81472f-d318-4823-887a-ea64ac6f680a'
+
+  orcid_yml     = YAML.load_file(File.join(Rails.root, "config", "orcid.yml"))
+  settings = orcid_yml[Rails.env].symbolize_keys!
+  puts "Connecting to ORCID API at " + settings[:site] + " as client app #{settings[:client_id]}"
+  provider :orcid, settings[:client_id], settings[:client_secret], 
+  :client_options => {
+    :site => settings[:site],
+    :authorize_url => settings[:authorize_url],
+    :token_url => settings[:token_url]
+  }
+
 end
