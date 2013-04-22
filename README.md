@@ -31,16 +31,12 @@ The main purpose of the app is to demonstrate the coolness of the [ORCID OmniAut
 The open your browser at http://localhost:3000 and verify that the client app is running.
 
 
-### Register client app with the ORCID test sandbox
+### Register & configure an ORCID client application
 
-The ORCID sandbox is now live at http://devsandbox.orcid.org . Go to the Developer portal for info on how to register a client app that can connect to the sandbox:
+See ORCID API documentation for info on the sandbox and how to
+register a client app that can connect to it:
 
-http://dev.orcid.org/docs
-
-
-### Configure client app to connect to the ORCID sandbox
-
-See http://support.orcid.org/knowledgebase/articles/116874-orcid-api-guide
+http://support.orcid.org/knowledgebase/articles/154086-api-documentation
 
 
 ## Using the app
