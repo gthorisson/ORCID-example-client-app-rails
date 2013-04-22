@@ -4,6 +4,11 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
   orcid_yml     = YAML.load_file(File.join(Rails.root, "config", "orcid.yml"))
   settings = orcid_yml[Rails.env].symbolize_keys!
+
+  # Make parameters available elsewhere in the app
+  Rails.configuration.orcid = settings
+
+  # Initialize the OAuth connection
   puts "Connecting to ORCID API at " + settings[:site] + " as client app #{settings[:client_id]}"
   provider :orcid, settings[:client_id], settings[:client_secret], 
   :client_options => {

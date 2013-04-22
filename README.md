@@ -5,7 +5,7 @@ Simple web application built with [Ruby on Rails](http://rubyonrails.org) and [T
 By [Gudmundur A. Thorisson] (http://www.gthorisson.name), University of Iceland / ORCID
 
 
-The main purpose of the app is to demonstrate the coolness of the ORCID OmniAuth strategy: https://github.com/gthorisson/omniauth-orcid/
+The main purpose of the app is to demonstrate the coolness of the [ORCID OmniAuth strategy](https://github.com/gthorisson/omniauth-orcid) 
 
 
 ## Getting started
@@ -40,7 +40,7 @@ http://dev.orcid.org/docs
 
 ### Configure client app to connect to the ORCID sandbox
 
-See http://dev.orcid.org/docs/api-code-examples-ruby
+See http://support.orcid.org/knowledgebase/articles/116874-orcid-api-guide
 
 
 ## Using the app
@@ -59,25 +59,24 @@ See http://dev.orcid.org/docs/api-code-examples-ruby
 
 ## OAuth implementation notes
 
-The OAuth part of the client <-> ORCID connectivity is handled by the terrific [OmniAuth external authentication framework](http://www.omniauth.org). As with most other OAuth APIs in mainstream use, the "OAuth dance" is pretty straightforward and, importantly, standardized. So, only a simple [custom OAuth2 strategy](https://github.com/gthorisson/ORCID-example-client-app-rails/blob/master/lib/omniauth/strategies/orcid.rb) is needed to deal with setup and customization specific to the ORCID OAuth API.
-
-See the [ORCID devsite](See http://dev.orcid.org/docs/api-code-examples-ruby
-) for more details on the OAuth nuts&bolts.
+The bulk of the OAuth part of the client <-> ORCID connectivity is
+ handled by the terrific
+ [OmniAuth external authentication framework](http://www.omniauth.org). As
+ with most other OAuth APIs in mainstream use, the "OAuth dance" is
+ pretty straightforward and, importantly, standardized. The [ORCID OmniAuth strategy](https://github.com/gthorisson/omniauth-orcid) adds the minimal extra bits needed to deal with setup and customization specific to the ORCID OAuth API.
 
 
 ## More information 
 
-Main ORCID website - http://about.orcid.org
-
-ORCID Support website - http://support.orcid.org
-
-ORCID Developer website - http://dev.orcid.org
+* ORCID Open Source Project - https://github.com/ORCID/ORCID-Source
+* Developer Wiki - https://github.com/ORCID/ORCID-Source/wiki
+* Technical community - http://orcid.org/about/community/orcid-technical-community
 
 
 ## Acknowledgements
 
 
-This work was supported in part by funds from the NIH Award, [VIVO: Enabling National Networking of Scientists] (http://www.vivoweb.org), U24 RR029822 and by the European Community’s Seventh Framework Programme (FP7/2007–2013) under contract grant number 200754 ([The GEN2PHEN Project] (http://www.gen2phen.org))
+This work was supported in part by funds from the NIH Award, [VIVO: Enabling National Networking of Scientists] (http://www.vivoweb.org), U24 RR029822 and by the European Community’s Seventh Framework Programme (FP7/2007–2013) under contract grant number 200754 ([The GEN2PHEN Project] (http://www.gen2phen.org)).
 
 
 

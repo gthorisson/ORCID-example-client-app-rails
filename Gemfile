@@ -9,9 +9,8 @@ gem 'rails'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'sqlite3'
 gem "devise"
-gem "omniauth"
 gem 'omniauth-twitter'
-gem 'omniauth-orcid'
+gem 'omniauth-orcid',   '~> 0.6'
 gem 'ruby-debug19'
 gem 'jquery-rails'
 gem 'multi_xml'

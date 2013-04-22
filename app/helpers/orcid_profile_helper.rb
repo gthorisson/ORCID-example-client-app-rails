@@ -4,9 +4,10 @@ require 'oauth2'
 require 'multi_xml'
 
 module OrcidProfileHelper
-
-  # TODO move consumer ID + secret to a config file!!
-  CLIENT = OAuth2::Client.new '0000-0002-7649-0259','5a81472f-d318-4823-887a-ea64ac6f680a', :site  => 'http://api.devsandbox.orcid.org'
+  Rails.logger.debug "Retrieving profile data from ORCID API at #{Rails.configuration.orcid[:site]} as client app #{Rails.configuration.orcid[:client_id]}"
+  CLIENT = OAuth2::Client.new Rails.configuration.orcid[:client_id], 
+                              Rails.configuration.orcid[:client_secret],
+                              :site => Rails.configuration.orcid[:site]
   
   # Prepare the OAuth token needed to make the Tier 2 API call
   def build_token(access_token)
